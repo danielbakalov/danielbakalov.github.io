@@ -1,0 +1,112 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+* { margin: 0; padding: 0; }
+
+img,
+svg { display: block; max-width: 100%; height: auto; }
+
+:root {
+  color-scheme: light;
+
+  --paper:     #f4f1ea;
+  --ink:       #1e1b16;
+  --ink-soft:  #6f6759;
+  --accent:    #9a3b2f;
+  --rule:      #d6cfbe;
+  --shadow:    rgba(60, 50, 30, 0.13);
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua",
+           "URW Palladio L", Georgia, serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  min-height: 100svh;
+  font-family: var(--serif);
+  color: var(--ink);
+  background-color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.home {
+  position: relative;
+  z-index: 1;
+  max-width: 34rem;
+  margin-inline: auto;
+  padding: clamp(2.2rem, 7vh, 4.5rem) 1.5rem 4rem;
+  text-align: center;
+}
+
+.home h1 {
+  font-size: clamp(2.3rem, 6.6vw, 3.25rem);
+  font-weight: 400;
+  font-variant-caps: small-caps;
+  letter-spacing: 0.07em;
+  text-indent: 0.07em;
+  line-height: 1.15;
+}
+
+.home .subtitle {
+  margin-top: 0.55rem;
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.portrait {
+  max-width: min(100%, 26rem);
+  max-height: 21rem;
+  width: auto;
+  margin: 2rem auto 0;
+}
+
+.clock {
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.09em;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums; }
+
+.socials {
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.09em;
+  line-height: 1.9;
+  color: var(--rule);
+}
+
+.socials a {
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.28em;
+  padding-inline: 0.2rem;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.socials a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+@media (max-width: 560px) {
+  .home { padding-top: 2rem; }
+  .socials { font-size: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body::before { display: none; }
+}
